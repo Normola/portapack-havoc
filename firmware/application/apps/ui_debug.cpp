@@ -35,6 +35,11 @@ using namespace portapack;
 
 #include "irq_controls.hpp"
 
+#include "portapack.hpp"
+using namespace portapack;
+
+#include "irq_controls.hpp"
+
 namespace ui {
 
 /* DebugMemoryView *******************************************************/
@@ -347,7 +352,7 @@ DebugMenuView::DebugMenuView(NavigationView& nav) {
 	add_items({
 		{ "Memory", 		ui::Color::white(),	nullptr,	[&nav](){ nav.push<DebugMemoryView>(); } },
 		{ "Radio State",	ui::Color::white(),	nullptr,	[&nav](){ nav.push<NotImplementedView>(); } },
-		//{ "SD Card",		ui::Color::white(),	nullptr,	[&nav](){ nav.push<SDCardDebugView>(); } },
+		{ "SD Card",		ui::Color::white(),	nullptr,	[&nav](){ nav.push<SDCardDebugView>(); } },
 		{ "Peripherals",	ui::Color::white(),	nullptr,	[&nav](){ nav.push<DebugPeripheralsMenuView>(); } },
 		{ "Temperature",	ui::Color::white(),	nullptr,	[&nav](){ nav.push<TemperatureView>(); } },
 		{ "Controls",		ui::Color::white(),	nullptr,	[&nav](){ nav.push<DebugControlsView>(); } },	});

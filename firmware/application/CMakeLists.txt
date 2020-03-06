@@ -117,27 +117,25 @@ set(CPPSRC
 	${COMMON}/ak4951.cpp
 	${COMMON}/backlight.cpp
 	${COMMON}/baseband_cpld.cpp
-	${COMMON}/bch_code.cpp
+	tuning.cpp
+	rf_path.cpp
+	hw/rffc507x.cpp
+	hw/rffc507x_spi.cpp
+	hw/max2837.cpp
+	hw/max5864.cpp
 	${COMMON}/buffer.cpp
-	${COMMON}/buffer_exchange.cpp
-	${COMMON}/chibios_cpp.cpp
-	${COMMON}/cpld_max5.cpp
-	${COMMON}/cpld_update.cpp
-	${COMMON}/cpld_xilinx.cpp
-	${COMMON}/debug.cpp
-	${COMMON}/ert_packet.cpp
-	${COMMON}/event.cpp
-	${COMMON}/gcc.cpp
-	${COMMON}/hackrf_hal.cpp
-	${COMMON}/i2c_pp.cpp
-	${COMMON}/jtag.cpp
-	${COMMON}/jtag_tap.cpp
+	hw/debounce.cpp
+	touch.cpp
+	hw/touch_adc.cpp
+	hw/encoder.cpp
+	audio.cpp
 	${COMMON}/lcd_ili9341.cpp
 	${COMMON}/lfsr_random.cpp
 	${COMMON}/manchester.cpp
 	${COMMON}/message_queue.cpp
 	${COMMON}/morse.cpp
 	${COMMON}/png_writer.cpp
+	${COMMON}/buffer_exchange.cpp
 	${COMMON}/pocsag.cpp
 	${COMMON}/pocsag_packet.cpp
 	${COMMON}/portapack_io.cpp
@@ -151,10 +149,42 @@ set(CPPSRC
 	${COMMON}/ui_painter.cpp
 	${COMMON}/ui_text.cpp
 	${COMMON}/ui_widget.cpp
-	${COMMON}/utility.cpp
-	${COMMON}/wm8731.cpp
-	audio.cpp
-	baseband_api.cpp
+	${COMMON}/ui_painter.cpp
+	${COMMON}/ui_focus.cpp
+	ui_navigation.cpp
+	ui/ui_menu.cpp
+	ui/ui_rssi.cpp
+	ui/ui_channel.cpp
+	ui/ui_audio.cpp
+	ui/ui_font_fixed_8x16.cpp
+	ui_setup.cpp
+	apps/ui_touch_calibration.cpp
+	apps/ui_debug.cpp
+	ui_baseband_stats_view.cpp
+	ui_sd_card_status_view.cpp
+	ui_sd_card_debug.cpp
+	ui_console.cpp
+	ui/ui_receiver.cpp
+	ui_record_view.cpp
+	ui/ui_spectrum.cpp
+	recent_entries.cpp
+	receiver_model.cpp
+	spectrum_color_lut.cpp
+	apps/analog_audio_app.cpp
+	${COMMON}/ais_baseband.cpp
+	${COMMON}/ais_packet.cpp
+	apps/ais_app.cpp
+	apps/tpms_app.cpp
+	${COMMON}/tpms_packet.cpp
+	apps/ert_app.cpp
+	${COMMON}/ert_packet.cpp
+	apps/capture_app.cpp
+	sd_card.cpp
+	rtc_time.cpp
+	file.cpp
+	log_file.cpp
+	${COMMON}/png_writer.cpp
+	${COMMON}/buffer_exchange.cpp
 	capture_thread.cpp
 	clock_manager.cpp
 	core_control.cpp
@@ -213,6 +243,7 @@ set(CPPSRC
 	ui/ui_tabview.cpp
 	ui/ui_textentry.cpp
 	ui/ui_transmitter.cpp
+	ui_setup.cpp
 	apps/ui_about.cpp
 	apps/ui_adsb_rx.cpp
 	apps/ui_adsb_tx.cpp
@@ -220,7 +251,7 @@ set(CPPSRC
 	apps/ui_aprs_tx.cpp
 	apps/ui_bht_tx.cpp
 	apps/ui_coasterp.cpp
-	# apps/ui_debug.cpp
+	apps/ui_debug.cpp
 	apps/ui_encoders.cpp
 	apps/ui_fileman.cpp
 	apps/ui_freqman.cpp
@@ -253,6 +284,7 @@ set(CPPSRC
 	apps/analog_audio_app.cpp
 	apps/capture_app.cpp
 	apps/ert_app.cpp
+	${COMMON}/ert_packet.cpp
 	apps/lge_app.cpp
 	apps/pocsag_app.cpp
 	apps/replay_app.cpp
@@ -271,7 +303,8 @@ set(CPPSRC
 	# ui_numbers.cpp
 	# ui_replay_view.cpp
 	# ui_script.cpp
-	# ui_sd_card_debug.cpp
+	ui_sd_card_debug.cpp
+	ui_console.cpp
 	${CPLD_20150901_DATA_CPP}
 	${CPLD_20170522_DATA_CPP}
 	${HACKRF_CPLD_DATA_CPP}
@@ -307,8 +340,6 @@ set(INCDIR ${CMAKE_CURRENT_BINARY_DIR} ${COMMON} ${PORTINC} ${KERNINC} ${TESTINC
 	ui
 	hw
 	apps
-	protocols
-	bitmaps
 )
 
 #
